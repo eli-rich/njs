@@ -1,3 +1,3 @@
-# eMDN.me
+# njs.icu
 
-A clone of [mdn.io](https://github.com/lazd/mdn.io) except written in Go.
+A clone of [emdn.me](https://github.com/eli-rich/emdn.me) except for NodeJS docs.
