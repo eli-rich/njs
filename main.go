@@ -34,5 +34,5 @@ func main() {
 	app.Get("/:query", func(c *fiber.Ctx) error {
 		return c.Redirect(config.Engine + c.Params("query") + " " + config.Search)
 	})
-	app.Listen(":" + config.Port)
+	app.ListenTLS(":"+config.Port, "cert.pem", "key.pem")
 }
