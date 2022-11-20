@@ -1,0 +1,6 @@
+{
+  "engine": "https://duckduckgo.com/?q=%21%20",
+  "search": "site:developer.mozilla.org",
+  "fallback": "https://developer.mozilla.org",
+  "port": "3000"
+}
