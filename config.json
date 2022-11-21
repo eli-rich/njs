@@ -1,6 +1,18 @@
 {
+  "paths": {
+    "mdn": "site:developer.mozilla.org",
+    "node": "site:nodejs.org",
+    "npm": "site:npmjs.com",
+    "express": "site:expressjs.com",
+    "react": "site:reactjs.org",
+    "solid": "site:solidjs.com",
+    "djs": "site:discord.js.org",
+    "mongo": "site:mongodb.com",
+    "mongoose": "site:mongoosejs.com",
+    "fastify": "site:fastify.io",
+    "next": "site:nextjs.org"
+  },
   "engine": "https://duckduckgo.com/?q=%21%20",
-  "search": "site:nodejs.org",
   "fallback": "https://nodejs.org/en/docs",
-  "port": "443"
+  "port": "3000"
 }
