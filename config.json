@@ -10,7 +10,8 @@
     "mongo": "site:mongodb.com",
     "mongoose": "site:mongoosejs.com",
     "fastify": "site:fastify.io",
-    "next": "site:nextjs.org"
+    "next": "site:nextjs.org",
+    "github": "site:github.com"
   },
   "engine": "https://duckduckgo.com/?q=%21%20",
   "fallback": "https://nodejs.org/en/docs",
