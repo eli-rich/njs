@@ -12,6 +12,7 @@ import (
 type Config struct {
 	Engine    string `json:"engine"`
 	Fallback  string `json:"fallback"`
+	PortSSL   string `json:"portSSL"`
 	Port      string `json:"port"`
 	Fullchain string `json:"fullchain"`
 	Privkey   string `json:"privkey"`
@@ -62,14 +63,14 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Redirect(config.Fallback)
 	})
-	go forwardToHttps()
-	app.ListenTLS(":"+config.Port, config.Fullchain, config.Privkey)
+	go forwardToHttps(config.Port)
+	app.ListenTLS(":"+config.PortSSL, config.Fullchain, config.Privkey)
 }
 
-func forwardToHttps() {
+func forwardToHttps(port string) {
 	app := fiber.New()
 	app.Get("/*", func(c *fiber.Ctx) error {
 		return c.Redirect("https://" + c.Hostname() + c.Path())
 	})
-	app.Listen(":80")
+	app.Listen(":" + port)
 }
