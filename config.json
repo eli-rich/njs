@@ -11,7 +11,8 @@
     "mongoose": "site:mongoosejs.com",
     "fastify": "site:fastify.io",
     "next": "site:nextjs.org",
-    "github": "site:github.com"
+    "github": "site:github.com",
+    "wiki": "site:wikipedia.org"
   },
   "engine": "https://duckduckgo.com/?q=%21%20",
   "fallback": "https://nodejs.org/en/docs",
