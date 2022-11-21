@@ -10,10 +10,12 @@ import (
 )
 
 type Config struct {
-	Engine   string `json:"engine"`
-	Fallback string `json:"fallback"`
-	Port     string `json:"port"`
-	Paths    map[string]string
+	Engine    string `json:"engine"`
+	Fallback  string `json:"fallback"`
+	Port      string `json:"port"`
+	Fullchain string `json:"fullchain"`
+	Privkey   string `json:"privkey"`
+	Paths     map[string]string
 }
 
 func main() {
@@ -61,7 +63,7 @@ func main() {
 		return c.Redirect(config.Fallback)
 	})
 	go forwardToHttps()
-	app.ListenTLS(":"+config.Port, "cert.pem", "key.pem")
+	app.ListenTLS(":"+config.Port, config.Fullchain, config.Privkey)
 }
 
 func forwardToHttps() {

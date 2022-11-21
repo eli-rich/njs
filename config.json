@@ -14,5 +14,7 @@
   },
   "engine": "https://duckduckgo.com/?q=%21%20",
   "fallback": "https://nodejs.org/en/docs",
-  "port": "3000"
+  "port": "3000",
+  "fullchain": "/etc/letsencrypt/live/yourdomain/fullchain.pem",
+  "privkey": "/etc/letsencrypt/live/yourdomain/privkey.pem"
 }
