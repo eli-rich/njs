@@ -31,7 +31,7 @@ func main() {
 	})
 	app.Static("/style.css", "./client/style.css", fiber.Static{
 		Compress:      false,
-		CacheDuration: 1 * time.Millisecond,
+		CacheDuration: 72 * time.Hour,
 	})
 	registerQueryRoutes(app)
 	registerRootRoutes(app)
