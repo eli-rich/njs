@@ -1,2 +1,3 @@
 #! /bin/bash
-go build -ldflags='-s -w' -o main .
+cd server
+go build -ldflags='-s -w' -o ../main .

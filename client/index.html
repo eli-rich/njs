@@ -9,14 +9,29 @@
   </head>
   <body class="bg-zinc-100">
     <h1 class="font-bold text-center text-4xl mt-5 uppercase">{{ .Title }}</h1>
-    <main class="grid place-content-center items-center mt-10 mx-auto">
-      <div class="bg-white flex flex-col w-full mx-auto p-10 rounded-sm">
+    <a
+      class="text-center text-2xl mt-1 uppercase text-blue-500 mx-auto block"
+      href="https://github.com/eli-rich/njs.icu"
+      target="_blank"
+    >
+      Source Code
+    </a>
+    <main class="grid place-content-center items-center mt-2 mx-auto">
+      <div
+        class="bg-white flex flex-col mx-auto p-3 rounded-sm leading-relaxed gap-1"
+      >
         {{ range $path, $site := .Sites }}
-          <div class="grid grid-cols-2 grid-flow-col">
-            <p class="text-xl">{{ $path }}</p>
+          <div
+            class="flex flex-row odd:bg-gray-100 even:bg-white justify-between gap-12"
+          >
+            <p
+              class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold w-full px-2"
+            >
+              {{ $path }}
+            </p>
             <a
               href="https://{{ $site }}"
-              class="text-blue-500 text-xl"
+              class="text-blue-500 text-xl px-2"
               target="_blank"
               >{{ $site }}</a
             >
