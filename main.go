@@ -33,6 +33,7 @@ func main() {
 		Compress:      false,
 		CacheDuration: 72 * time.Hour,
 	})
+	registerGoogleRoute(app)
 	registerQueryRoutes(app)
 	registerRootRoutes(app)
 	app.Listen(":" + config.Port)

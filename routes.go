@@ -35,3 +35,9 @@ func registerRootRoutes(app *fiber.App) {
 		return c.Redirect("https://" + search[5:])
 	})
 }
+
+func registerGoogleRoute(app *fiber.App) {
+	app.Get("/g/:query", func(c *fiber.Ctx) error {
+		return c.Redirect("https://google.com/search?q=" + c.Params("query"))
+	})
+}
