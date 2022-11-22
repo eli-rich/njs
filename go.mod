@@ -1,4 +1,4 @@
-module mdnio
+module njs-icu
 
 go 1.19
 
