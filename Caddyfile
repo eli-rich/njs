@@ -5,3 +5,11 @@ njs.icu {
 www.njs.icu {
 	reverse_proxy localhost:3000
 }
+
+njstest.icu {
+	reverse_proxy localhost:3000
+}
+
+www.njstest.icu {
+	reverse_proxy localhost:3000
+}
