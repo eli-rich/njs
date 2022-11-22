@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>{{ .Title }}</title>
+  </head>
+  <body class="bg-zinc-100">
+    <h1 class="font-bold text-center text-4xl mt-5 uppercase">{{ .Title }}</h1>
+    <main class="grid place-content-center items-center mt-10 mx-auto">
+      <div class="bg-white flex flex-col w-full mx-auto p-10 rounded-sm">
+        {{ range $path, $site := .Sites }}
+          <div class="grid grid-cols-2 grid-flow-col">
+            <p class="text-xl">{{ $path }}</p>
+            <a
+              href="https://{{ $site }}"
+              class="text-blue-500 text-xl"
+              target="_blank"
+              >{{ $site }}</a
+            >
+          </div>
+        {{ end }}
+      </div>
+    </main>
+  </body>
+</html>

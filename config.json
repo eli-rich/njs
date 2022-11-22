@@ -12,7 +12,8 @@
     "fastify": "site:fastify.io",
     "next": "site:nextjs.org",
     "github": "site:github.com",
-    "wiki": "site:wikipedia.org"
+    "wiki": "site:wikipedia.org",
+    "svelte": "site:svelte.dev"
   },
   "engine": "https://duckduckgo.com/?q=%21%20",
   "port": "3000",
