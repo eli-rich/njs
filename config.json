@@ -17,7 +17,7 @@
     "prisma": "site:prisma.io",
     "so": "site:stackoverflow.com",
     "reddit": "site:reddit.com",
-    "hn": "site:news.ycombinator.com/"
+    "hn": "site:news.ycombinator.com"
   },
   "engine": "https://duckduckgo.com/?q=%21%20",
   "port": "3000",
