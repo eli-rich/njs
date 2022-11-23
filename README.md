@@ -44,7 +44,7 @@ You can always view an up to date list of all the supported sites at [njs.icu](h
 - **/express/** — [Express docs](https://expressjs.com/)
 - **/fastify/** — [Fastify docs](https://fastify.io/)
 - **/github/** — [Github repos](https://github.com)
-- **/mdn/** — [Mozilla Developer Netowrk docs](https://developer.mozilla.org/)
+- **/mdn/** — [Mozilla Developer Network docs](https://developer.mozilla.org/)
 - **/mongo/** — [MongoDB docs](https://mongodb.com)
 - **/mongoose/** — [Mongoose docs](https://mongoosejs.com/)
 - **/next/** — [NextJS docs](https://nextjs.org)
