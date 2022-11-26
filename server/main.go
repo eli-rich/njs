@@ -1,11 +1,7 @@
 package main
 
 import (
-	"regexp"
-	"time"
-
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/template/html"
+	"github.com/gin-gonic/gin"
 )
 
 type Config struct {
@@ -16,7 +12,6 @@ type Config struct {
 	Paths     map[string]string
 }
 
-var pathRegex = regexp.MustCompile(`\/(.*)\/`)
 var config Config = loadConfig()
 var DisplayPaths = make(map[string]string)
 
@@ -24,25 +19,18 @@ func main() {
 	for k, v := range config.Paths {
 		DisplayPaths["/"+k+"/"] = v[5:]
 	}
-	engine := html.New("./client", ".html")
-
-	app := fiber.New(fiber.Config{
-		Views: engine,
-	})
-	app.Static("/style.css", "./client/style.css", fiber.Static{
-		Compress:      true,
-		CacheDuration: 72 * time.Hour,
+	gin.SetMode(gin.ReleaseMode)
+	app := gin.Default()
+	app.LoadHTMLGlob("client/*.html")
+	app.StaticFile("/style.css", "./client/style.css")
+	app.GET("/", func(c *gin.Context) {
+		c.HTML(200, "index.html", gin.H{
+			"Title": "njs.icu",
+			"Sites": DisplayPaths,
+		})
 	})
 	registerGoogleRoute(app)
 	registerQueryRoutes(app)
 	registerRootRoutes(app)
-	app.Listen(":" + config.Port)
-}
-
-func renderFallback(c *fiber.Ctx) error {
-
-	return c.Render("index", fiber.Map{
-		"Title": "njs.icu",
-		"Sites": DisplayPaths,
-	})
+	app.Run(":" + config.Port)
 }

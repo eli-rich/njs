@@ -1,43 +1,44 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gin-gonic/gin"
+)
 
-func registerQueryRoutes(app *fiber.App) {
+type Search struct {
+	Engine string `uri:"engine" binding:"required"`
+	Query  string `uri:"query" binding:"required"`
+}
+
+func registerQueryRoutes(app *gin.Engine) {
 	// routes for paths with query
 	// ex: https://njs.icu/wiki/Alan-Turing
-	app.Get("/*/:query", func(c *fiber.Ctx) error {
-		results := pathRegex.FindStringSubmatch(c.Path())
-		if len(results) == 0 {
-			return renderFallback(c)
-		}
-		path := results[1]
+	app.GET("/:engine/:query", func(c *gin.Context) {
+		path := c.Param("engine")
 		search := config.Paths[path]
 		if search == "" {
-			return renderFallback(c)
+			c.Redirect(302, "/")
+			return
 		}
-		return c.Redirect(config.Engine + c.Params("query") + " " + search)
+		c.Redirect(302, config.Engine+c.Param("query")+" "+search)
 	})
 }
 
-func registerRootRoutes(app *fiber.App) {
+func registerRootRoutes(app *gin.Engine) {
 	// routes for paths without query
 	// ex: https://njs.icu/wiki
-	app.Get("/*", func(c *fiber.Ctx) error {
-		results := pathRegex.FindStringSubmatch(c.Path())
-		if len(results) == 0 {
-			return renderFallback(c)
-		}
-		path := results[1]
+	app.GET("/:engine", func(c *gin.Context) {
+		path := c.Param("engine")
 		search := config.Paths[path]
 		if search == "" {
-			return renderFallback(c)
+			c.Redirect(302, "/")
+			return
 		}
-		return c.Redirect("https://" + search[5:])
+		c.Redirect(302, "https://"+search[5:])
 	})
 }
 
-func registerGoogleRoute(app *fiber.App) {
-	app.Get("/g/:query", func(c *fiber.Ctx) error {
-		return c.Redirect("https://google.com/search?q=" + c.Params("query"))
+func registerGoogleRoute(app *gin.Engine) {
+	app.GET("/g/:query", func(c *gin.Context) {
+		c.Redirect(302, "https://google.com/search?q="+c.Param("query"))
 	})
 }
