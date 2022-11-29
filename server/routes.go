@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -34,12 +32,12 @@ func registerRootRoutes(app *gin.Engine) {
 		if search == "" {
 			// check if standalone url
 			standalone := config.Standalone[path][5:]
-			log.Println(standalone)
 			if standalone == "" {
 				c.Redirect(302, "/")
 				return
 			}
 			c.Redirect(302, "https://"+standalone)
+			return
 		}
 		c.Redirect(302, "https://"+search[5:])
 	})

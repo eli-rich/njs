@@ -6,7 +6,6 @@
     "express": "site:expressjs.com",
     "react": "site:reactjs.org",
     "solid": "site:solidjs.com",
-    "djs": "site:discord.js.org",
     "mongo": "site:mongodb.com",
     "mongoose": "site:mongoosejs.com",
     "fastify": "site:fastify.io",
@@ -20,6 +19,7 @@
     "hn": "site:news.ycombinator.com"
   },
   "standalone": {
+    "djs": "site:discord.js.org",
     "nvm": "site:github.com/nvm-sh/nvm"
   },
   "engine": "https://duckduckgo.com/?q=%21%20",
