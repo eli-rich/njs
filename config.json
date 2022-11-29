@@ -19,6 +19,9 @@
     "reddit": "site:reddit.com",
     "hn": "site:news.ycombinator.com"
   },
+  "standalone": {
+    "nvm": "site:github.com/nvm-sh/nvm"
+  },
   "engine": "https://duckduckgo.com/?q=%21%20",
   "port": "3000",
   "fullchain": "/etc/letsencrypt/live/njs.icu/fullchain.pem",

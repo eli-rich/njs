@@ -5,11 +5,12 @@ import (
 )
 
 type Config struct {
-	Engine    string `json:"engine"`
-	Port      string `json:"port"`
-	Fullchain string `json:"fullchain"`
-	Privkey   string `json:"privkey"`
-	Paths     map[string]string
+	Engine     string            `json:"engine"`
+	Port       string            `json:"port"`
+	Fullchain  string            `json:"fullchain"`
+	Privkey    string            `json:"privkey"`
+	Paths      map[string]string `json:"paths"`
+	Standalone map[string]string `json:"standalone"`
 }
 
 var config Config = loadConfig()
@@ -17,6 +18,9 @@ var DisplayPaths = make(map[string]string)
 
 func main() {
 	for k, v := range config.Paths {
+		DisplayPaths["/"+k+"/"] = v[5:]
+	}
+	for k, v := range config.Standalone {
 		DisplayPaths["/"+k+"/"] = v[5:]
 	}
 	gin.SetMode(gin.ReleaseMode)
