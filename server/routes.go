@@ -31,12 +31,12 @@ func registerRootRoutes(app *gin.Engine) {
 		search := config.Paths[path]
 		if search == "" {
 			// check if standalone url
-			standalone := config.Standalone[path][5:]
+			standalone := config.Standalone[path]
 			if standalone == "" {
 				c.Redirect(302, "/")
 				return
 			}
-			c.Redirect(302, "https://"+standalone)
+			c.Redirect(302, "https://"+standalone[5:])
 			return
 		}
 		c.Redirect(302, "https://"+search[5:])

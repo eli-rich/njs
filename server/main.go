@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/nanmu42/gzip"
 )
 
 type Config struct {
@@ -23,6 +24,7 @@ func main() {
 	}
 	gin.SetMode(gin.ReleaseMode)
 	app := gin.Default()
+	app.Use(gzip.DefaultHandler().Gin)
 	app.LoadHTMLGlob("client/*.html")
 	app.StaticFile("/style.css", "./client/style.css")
 	app.GET("/", func(c *gin.Context) {
