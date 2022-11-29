@@ -7,8 +7,6 @@ import (
 type Config struct {
 	Engine     string            `json:"engine"`
 	Port       string            `json:"port"`
-	Fullchain  string            `json:"fullchain"`
-	Privkey    string            `json:"privkey"`
 	Paths      map[string]string `json:"paths"`
 	Standalone map[string]string `json:"standalone"`
 }

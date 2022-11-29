@@ -23,7 +23,5 @@
     "nvm": "site:github.com/nvm-sh/nvm"
   },
   "engine": "https://duckduckgo.com/?q=%21%20",
-  "port": "3000",
-  "fullchain": "/etc/letsencrypt/live/njs.icu/fullchain.pem",
-  "privkey": "/etc/letsencrypt/live/njs.icu/privkey.pem"
+  "port": "3000"
 }
